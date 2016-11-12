@@ -2,8 +2,8 @@ clear all;
 %%%%%%%%-----------Senal Original-----------%%%%%%%%
 % Cargamos fichero .wav para su respectivo analisis
 % Donde y=(sin(fr*2*pi*t)) y fs= frecuencia de muestreo
-[y fs] = wavread('/home/asus/Escritorio/U2016/senales/analisisVozFemenina/vozfemenina.wav');
-vozFemenina = wavread('/home/asus/Escritorio/U2016/senales/analisisVozFemenina/vozfemenina.wav');
+[y fs] = wavread('vozfemenina.wav');
+vozFemenina = wavread('vozfemenina.wav');
 % Graficamos el sonido en funcion del tiempo
 figure (1)
 plot (y) %. plot(y.^2)
@@ -48,70 +48,37 @@ sound(nuevaSenal,fs)
 %%%%%%%%-----------240 Muestras-----------%%%%%%%%
 %Tamaño de la nueva senal:32500
 %Numero de frames 240
-%Llave=> 32500/240=135
-muestra=1;
-tramo=0;
-%-----Grafica de las muestras de la señal--------%
-for div = 1 : 35
-    tramo=tramo+1;
-    grafica=muestra+135;
-    figure(3)
-    subplot(7,5,div),
-    plot(nuevaSenal(muestra:grafica))
-    %title('Primer plot de muestras 0..35 frames')
-    muestra=muestra+135;
-end                                       
-for div = 1 : 35
-    tramo=tramo+1;
-    grafica=muestra+135;
-    figure(4)
-    subplot(7,5,div),
-    plot(nuevaSenal(muestra:grafica)) 
-    %title('Primer plot de muestras 35..70 frames')
-    muestra=muestra+135;
+%Llave=> 30699/240=127
+
+num=240;
+
+tamano=floor(size(nuevaSenal,1) / num);
+grupoSenales=zeros(num,tamano);
+Ex=zeros(num,1);
+
+for i=1:num
+    inf=(tamano*(i-1))+1;
+    sup=tamano*i;
+    grupoSenales(i,:)=nuevaSenal(inf:sup);
+    X=grupoSenales(i,:);
+    Ex(i) = sum((abs(X)).^2)/tamano;
 end
-for div = 1 : 35
-    tramo=tramo+1;
-    grafica=muestra+135;
-    figure(5)
-    subplot(7,5,div),
-    plot(nuevaSenal(muestra:grafica))
-    %title('Primer plot de muestras 70..105 frames')
-    muestra=muestra+135;
+[B,I] = sort(Ex,'descend');
+B=B(1:10) 
+I=I(1:10)
+
+dF = fs/tamano;
+f = -fs/2:dF:fs/2-dF;
+
+for i=1:size(I)
+    indice=I(i)
+    X=fftshift(fft(grupoSenales(indice,:)));
+    figure();
+    plot(f,abs(X)/tamano);
+    grid;
+   	title('Amplitud del espectro');
+    xlabel('f(Hz)');
+    ylabel('|y_i(t)|');
 end
-for div = 1 : 35
-    tramo=tramo+1;
-    grafica=muestra+135;
-    figure(6)
-    subplot(7,5,div),
-    plot(nuevaSenal(muestra:grafica)) 
-    %title('Primer plot de muestras 105..140 frames')
-    muestra=muestra+135;
-end
-for div = 1 : 35
-    tramo=tramo+1;
-    grafica=muestra+135;
-    figure(7)
-    subplot(7,5,div),
-    plot(nuevaSenal(muestra:grafica)) 
-    %title('Primer plot de muestras 140..175 frames')
-    muestra=muestra+135;
-end
-for div = 1 : 35
-    tramo=tramo+1;
-    grafica=muestra+135;
-    figure(8)
-    subplot(7,5,div),
-    plot(nuevaSenal(muestra:grafica))
-    %title('Primer plot de muestras 175..210 frames')
-    muestra=muestra+135;
-end
-for div = 1 : 35
-    tramo=tramo+1;
-    grafica=muestra+135;
-    figure(9)
-    subplot(7,5,div),
-    plot(nuevaSenal(muestra:grafica)) %Primer plot de muestras 210..240 frames
-    %title('Primer plot de muestras 210..240 frames')
-    muestra=muestra+135;
-end
+
+
