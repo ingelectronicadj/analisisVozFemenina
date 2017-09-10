@@ -52,7 +52,42 @@ for n = 1:NW
 end
 s = 0:0.01218:4.74;
 figure(2), plot(s,tono ,'o');
-axis([0 4.75 -17 17]);
+axis([0 4.75 -17 13]);
 Ev=v'*v ;
 title('Pentagrama de la Voz Femenina');grid on;
 ylabel('Tono'); xlabel('Tiempo')
+ytickangle(90);
+yticks([-17:13]);
+hold on
+text(0.08,-17,'Re','Color','b'); 
+text(0.08,-16,'Re#','Color','b'); 
+text(0.08,-15,'Mi','Color','b'); 
+text(0.08,-14,'Fa','Color','b'); 
+text(0.08,-13,'Fa#','Color','b'); 
+text(0.08,-12,'Sol','Color','b'); 
+text(0.08,-11,'Sol#','Color','b'); 
+text(0.08,-10,'La','Color','b'); 
+text(0.08,-9,'La#','Color','b'); 
+text(0.08,-8,'Si','Color','b'); 
+text(0.08,-7,'Do','Color','b'); 
+text(0.08,-6,'Do#','Color','b'); 
+text(0.08,-5,'Re','Color','b'); 
+text(0.08,-4,'Re#','Color','b'); 
+text(0.08,-3,'Mi','Color','b'); 
+text(0.08,-2,'Fa','Color','b'); 
+text(0.08,-1,'Fa#','Color','b'); 
+text(0.08,0,'Sol','Color','b');
+text(0.08,1,'Sol#','Color','b');
+text(0.08,2,'La','Color','b');
+text(0.08,3,'La#','Color','b');
+text(0.08,4,'Si','Color','b');
+text(0.08,5,'Do','Color','b');
+text(0.08,6,'Do#','Color','b');
+text(0.08,7,'Re','Color','b');
+text(0.08,8,'Re#','Color','b');
+text(0.08,9,'Mi','Color','b');
+text(0.08,10,'Fa','Color','b');
+text(0.08,11,'Fa#','Color','b');
+text(0.08,12,'Sol','Color','b');
+text(0.08,13,'Sol#','Color','b');
+
