@@ -1,7 +1,7 @@
 clear all
 clc
 close all
-[x,fs]=wavread('vozfemenina.wav');
+[x fs] = audioread('../audios/vozfemenina.wav');
 %sound(x,fs);
 E = zeros(194,1);
 Z=E;

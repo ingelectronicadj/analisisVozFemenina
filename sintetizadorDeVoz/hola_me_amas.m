@@ -1,5 +1,5 @@
 close all; clc; clear all; 
-[x,fs]=audioread('vozfemenina.wav');
+[x fs] = audioread('../audios/vozfemenina.wav');
 xo=x(2750+(1:512)').*hamming(512);%o
 xl=x(3450+(1:512)').*hamming(512);%l
 xa=x(27700+(1:512)').*hamming(512);%a

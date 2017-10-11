@@ -1,5 +1,5 @@
 close all; clear all; clc;
-[x,fs]= wavread('vozfemenina.wav');
+[x fs] = audioread('../audios/vozfemenina.wav');
 %[x,fs]= audioread('vozfemenina.wav');% Carga voz
 L = length(x) ; % Obtener el tamano de x
 figure(1), subplot(3,1,1), plot(x); grid on; title('Audio Voz Femenina'); xlabel('Tiempo'); ylabel('Amplitud');

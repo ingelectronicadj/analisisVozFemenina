@@ -1,5 +1,5 @@
 clear all; clc; close all;
-[x,fs]=wavread('vozfemenina.wav');%Si usas una version superior a 2003 usa la siguiente linea
+[x fs] = audioread('../audios/vozfemenina.wav');;%Si usas una version superior a 2003 usa la siguiente linea
 %[x,fs]=audioread('vozfemenina.wav');
 N=length(x);
 t = (0:N-1)'/fs;

@@ -1,6 +1,6 @@
 clear all; clc; close all;
 %[y,fs] = audioread('aeiuoDiego8.wav'); % AEIUO
-[y,fs] = audioread('vozfemenina.wav'); 
+[y fs] = audioread('../audios/vozfemenina.wav');
 L = length(y);
 figure(1), plot(y); grid on;
 title('Grafica del sonido en funcion del tiempo'); 

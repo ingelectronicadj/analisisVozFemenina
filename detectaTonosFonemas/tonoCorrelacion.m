@@ -1,4 +1,5 @@
-[x,fs]=audioread('vozfemenina.wav');
+clear all; clc; close all;
+[x fs] = audioread('../audios/vozfemenina.wav');
 [N,F,A,W] = firpmord([50 100 400 450],[0 1 0],[1 1 1]/200,fs);
 h = firpm(N,F,A,W);
 x = conv(h,x);
@@ -43,3 +44,7 @@ figure
 subplot(211); plot(t,x)
 tt = (0:NV-1)*DV/fs + LV/2/fs;
 subplot(212); plot(tt,tono)
+%Los picos que se observan en la grafica, en especial uno que manda la
+%grafica a un un valor elevado en amplitud es un error considerado por la
+%falta de considerar los cruces por cero. Basicamente el error sera notable
+%en los fragmentos de audio con no vocal (consonantes)

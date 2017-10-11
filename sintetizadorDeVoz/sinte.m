@@ -34,7 +34,7 @@ e=x-x_;
 %figure(), plot(r)
 
 y=filter(1,[1;a],e);
-figure(), plot(x,'b-');hold on; plot(y,'r--')
+%figure(), plot(x,'b-');hold on; plot(y,'r--')
 d=(0:8191)';
 d=(mod(d,32)==0);
 y=filter(1,[1;a],d);

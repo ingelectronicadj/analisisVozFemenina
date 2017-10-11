@@ -1,5 +1,5 @@
 close all; clc; clear all; 
-[x,fs]=audioread('vozfemenina.wav');%Se lee la señal de audio
+[x fs] = audioread('../audios/vozfemenina.wav');%Se lee la senal de audio
 %Se extraen las vocales y consonantes necesitadas del audio
 xm=x(11600+(1:512)').*hamming(512);%m
 xi=x(31300+(1:512)').*hamming(512);%i

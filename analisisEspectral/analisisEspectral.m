@@ -2,8 +2,8 @@ clear all;
 %%%%%%%%-----------Senal Original-----------%%%%%%%%
 % Cargamos fichero .wav para su respectivo analisis
 % Donde y=(sin(fr*2*pi*t)) y fs= frecuencia de muestreo
-[y fs] = wavread('vozfemenina.wav');
-vozFemenina = wavread('vozfemenina.wav');
+[y fs] = audioread('../audios/vozfemenina.wav');
+vozFemenina = audioread('vozfemenina.wav');
 % Graficamos el sonido en funcion del tiempo
 figure (1)
 plot (y) %. plot(y.^2)
@@ -12,7 +12,7 @@ title('Grafica del sonido en funcion del tiempo')
 xlabel('Tiempo (s)')
 ylabel('y(t)')
 % Reproducimos el audio con la siguiente linea
-sound (y,fs)
+%sound (y,fs)
 
 %%%%%%%%-----------Nueva Senal-----------%%%%%%%%
 % A continuacion se rompe la senal en frames de 0.1 segundos para
