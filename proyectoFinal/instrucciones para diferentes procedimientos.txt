@@ -1,0 +1,22 @@
+INSTRUCCIONES:
+1. Para correr el programa simplemente debe abrir el arhivo ejecucion.m en matlab
+    y correrlo.
+    En el momento en que esta corriendo el programa debe pronunciar una vocal y esperar el resultado
+
+2. Si se desea volver a programar  la red neuronal con otro archivo de voz de 300 muestras, debe 
+    tener en cuenta que debe reemplazar el archivo unar.wav por su nuevo archivo, este archivo debe
+   contener el mismo nombre 'unarc.wav' o sino debe modificar su nombre en el archivo 'coeficientes_LPC.m'
+   este archivo debe tener cada fonema dentro del rango de 0.5 segundos con la siguiente secuencia
+   a,e,i,o,u y su duracion total debe ser de 2.5 minutos.
+
+  Con esto en mente se puede correr el programa 'coefiecientes_LPC.m' y guardar el resultado de a en el archivo
+  'veca'.
+
+  Despues de esto puede correr el programa 'entrenandoNeuronas' y guardar el  resultado de la matriz w en el
+  archivo 'vecw', con esto la red neuronal quedaria entrenada de nuevo. Es posible tambien reducir el valor de 0.3 en la linea 21
+  por un valor menor para disminuir el error. 
+
+  Despues de realizar estos procedimientos puede volver a correr el programa 'ejecucion.m', es posible observar 
+  diferentes resultados y dependiendo de la programacion mejores o peores resultados en el reconocimiento
+  preciso de las vocales.  
+  
